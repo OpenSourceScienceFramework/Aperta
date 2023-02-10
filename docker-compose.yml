@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  ossf:
+    container_name: ossf
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NODE_ENV=development
+    image: ossf-app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
+    command: npm run dev:docker
+    volumes:
+      - .:/usr/src/app
+      - /usr/app/node_modules
+    networks:
+      - ossf-network
+
+  mongodb:
+    image: mongo:6.0
+    container_name: mongodb
+    networks:
+      - ossf-network
+    volumes:
+      - mongodb:/data/db
+
+networks:
+  ossf-network:
+    driver: bridge
+
+volumes:
+  mongodb:
