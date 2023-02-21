@@ -16,7 +16,7 @@ services:
     command: npm run dev:docker
     volumes:
       - .:/usr/src/app
-      - /usr/src/app/node_modules
+      - /usr/app/node_modules
     networks:
       - ossf-network
 
