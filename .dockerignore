@@ -1,9 +1,0 @@
-node_modules
-npm-debug.log
-build
-.git
-.github
-.gitignore
-Dockerfile
-CHANGELOG.md
-CODE_OF_CONDUCT.md
